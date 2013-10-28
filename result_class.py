@@ -77,10 +77,10 @@ class Result(object):
 
     def has_fail_points(self):
         return (
-            self.fail_points.culture > 0 or
-            self.fail_points.realism > 0 or
-            self.fail_points.recruiter > 0 or
-            self.fail_points.tech > 0
+            self.fail_points['culture'] > 0 or
+            self.fail_points['realism'] > 0 or
+            self.fail_points['recruiter'] > 0 or
+            self.fail_points['tech'] > 0
         )
 
     def is_clean(self):
