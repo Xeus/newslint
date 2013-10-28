@@ -1,8 +1,4 @@
-# Newslint
-
-A Python linter to detect bias, inaccuracy, and subjectivity in news clippings.
-
-## Inspiration
+# joblint
 
 This is a Python modification/translation of Rowan Manning's excellent JavaScript package, `joblint`:
 
