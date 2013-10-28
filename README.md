@@ -1,4 +1,8 @@
-# joblint
+# newslint
+
+A linter for detecting bias, subjectivity, and inaccuracy in news clippings.
+
+## Credits
 
 ## Run
 
