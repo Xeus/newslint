@@ -2,11 +2,9 @@
 
 A linter for detecting bias, subjectivity, and inaccuracy in news clippings.
 
-## Credits
-
 ## Run
 
-Type `python joblint.py "[block of text]"` at a console to lint it.
+Type `python newslint.py "[block of text]"` at a console to lint it.  You will get a log report of errors, warnings, and notices along with what rules were found when linting the clipping.
 
 ## Credits
 
