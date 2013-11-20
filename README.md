@@ -14,4 +14,4 @@ https://github.com/rowanmanning/joblint
 
 My Python fork of Rowan's repo is at:
 
-https://github.com/Xeus/newslint
+https://github.com/Xeus/joblint_python
