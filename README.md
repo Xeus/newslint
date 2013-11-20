@@ -8,6 +8,8 @@ Type `python newslint.py "[block of text]"` at a console to lint it.  You will g
 
 ## Credits
 
+## Inspiration
+
 This is a Python modification/translation of Rowan Manning's excellent JavaScript package, `joblint`:
 
 https://github.com/rowanmanning/joblint

@@ -43,7 +43,6 @@ class Result(object):
         elif type_cat == 'warnings':
             self.warnings.append(new_msg)
 
-
     def add_error(self, msg, evidence):
         self._add_message('errors', msg, evidence)
 
