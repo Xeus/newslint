@@ -46,8 +46,10 @@ def flatten(l, ltypes=(list, tuple)):
         i += 1
     return ltype(l)
 
+
 def create(content):
     return Spec(content)
 
+
 def prepare_phrase(phrase):
-    return phrase if phrase.__class__.__name__ == 'SRE_Pattern' else re.compile('\\b' + phrase + '\\b', re.I)
+    return phrase if isinstance(phrase, re._pattern_type) else re.compile('\\b' + phrase + '\\b', re.I)  # not guaranteed to work since _ is not public API
