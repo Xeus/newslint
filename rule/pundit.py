@@ -18,7 +18,9 @@ pundit_words = [
     'dana perino',
     'evgeny morozov',
     'karl rove',
-    'maureen dowd'
+    'drudge',
+    'maureen dowd',
+    re.compile('chris(topher|) hayes')
 ]
 
 
@@ -30,6 +32,7 @@ def test(self, spec, result):
             amount + ' references to punditry are used',
             pundit_mentions
         )
+        result.add_mentions(pundit_mentions)
         result.add_culture_fail_points(len(pundit_mentions))  # TODO categorize this into new point category
 
 

@@ -13,6 +13,7 @@ class Result(object):
     })
 
     def __init__(self):
+        self.mentions = []
         self.errors = []
         self.warnings = []
         self.notices = []
@@ -29,6 +30,9 @@ class Result(object):
     def clear_current_rule(self):
         del self.current_rule
 
+    def _add_mentions(self, mentions):
+        self.mentions += mentions
+
     def _add_message(self, type_cat, msg, evidence):
         new_msg = {
             'message': msg,
@@ -42,6 +46,9 @@ class Result(object):
             self.notices.append(new_msg)
         elif type_cat == 'warnings':
             self.warnings.append(new_msg)
+
+    def add_mentions(self, mentions):
+        self._add_mentions(mentions)
 
     def add_error(self, msg, evidence):
         self._add_message('errors', msg, evidence)

@@ -1,5 +1,6 @@
 import math
-from colorama import Fore, Style
+from colorama import Fore, Back, Style
+
 
 def report(result, opts):
     opts = opts if opts != None else {}
@@ -14,14 +15,22 @@ def report(result, opts):
         log_messages('warning', 'yellow', opts['verbose'], result.warnings)
         log_messages('notice', 'grey', opts['verbose'], result.notices)
     print
+    log_mentions(result.mentions)
+
+
+def log_mentions(mentions):
+    print(Style.NORMAL + Fore.WHITE + Back.BLACK + 'Mentioned: ' + ', '.join(mentions))
+    print
 
 
 def log_heading(heading):
     print
-    print(Fore.CYAN + 'Joblint')
+    print(Fore.BLACK + Back.CYAN + 'NEWSLINT' + Back.BLACK)
+
 
 def log_success():
-    print(Fore.GREEN + 'No issues found with the job spec!')
+    print(Back.BLACK + Fore.GREEN + 'No issues found with the newslint spec!')
+
 
 def log_fail_charts(points):
     data_set = [
@@ -37,20 +46,24 @@ def log_fail_charts(points):
     for datum in data_set:
         log_fail_chart(datum['label'], max_label_length, datum['value'], max_value)
 
+
 def log_fail_chart(label, max_label_length, value, max_value):
-    full_label = label + ' Issues';
+    full_label = label + ' Issues'
     bar = ''
     for i in range(int(math.ceil(value))):
-        bar += '%'
+        bar += u'\u2588'
     num = '(' + str(int(value)) + ')'
-    print(Style.NORMAL + Fore.WHITE + full_label + ' ' * (max_label_length - len(full_label) + 15) + Fore.WHITE + Style.DIM + '|' + Style.NORMAL + Fore.YELLOW + bar + ' ' * (10 - len(bar)) + Fore.WHITE + Style.DIM + num)
+    print(Back.BLACK + Style.NORMAL + Fore.WHITE + full_label + ' ' * (max_label_length - len(full_label) + 15) + Fore.WHITE + Style.DIM + '|' + Style.NORMAL + Fore.YELLOW + bar + ' ' * (10 - len(bar)) + Fore.WHITE + Style.DIM + num)
+
 
 def max_val(arr):
     return max(arr)
 
+
 def log_messages(type_cat, color, verbose, messages):
     for msg in messages:
         log_message(type_cat, color, verbose, msg)
+
 
 def log_message(type_cat, color, verbose, message):
     if color == 'yellow':
