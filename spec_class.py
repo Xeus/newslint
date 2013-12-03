@@ -10,7 +10,7 @@ class Spec(object):
         self.content = content
 
         # make safe, but retain spaces
-        self._words = wz.url_fix(content).replace('%20', ' ').split(' ')
+        self._words = wz.url_fix(content.lower()).replace('%20', ' ').split(' ')
 
         self._body_normalized = ' ' + ' '.join(self._words) + ' '
 

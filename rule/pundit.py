@@ -12,14 +12,15 @@ pundit_words = [
     'slate',
     'msnbc',
     'foxnews',
-    'ann coulter',
+    'coulter',
     'david brooks',
     'ezra klein',
-    'dana perino',
+    'perino',
+    'malkin',
     'evgeny morozov',
     'karl rove',
     'drudge',
-    'maureen dowd',
+    'dowd',
     re.compile('chris(topher|) hayes')
 ]
 

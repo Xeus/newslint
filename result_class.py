@@ -1,4 +1,5 @@
 import math
+from sets import Set
 
 
 class Result(object):
@@ -37,7 +38,7 @@ class Result(object):
         new_msg = {
             'message': msg,
             'detail': self.current_rule['desc'] if self.current_rule != None else '',
-            'evidence': evidence if evidence != None else []
+            'evidence': ', '.join(Set(evidence)) if evidence != None else []
         }
 
         if type_cat == 'errors':

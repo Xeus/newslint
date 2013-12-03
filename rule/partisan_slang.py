@@ -5,6 +5,9 @@ partisan_words = [
     'libtard',
     'nobama',
     'death panel',
+    'communist',
+    'stasi',
+    re.compile('police[ -]?state'),
     re.compile('hipp(ies|y)'),
     re.compile('fly-?over state'),
     'wingnut'
