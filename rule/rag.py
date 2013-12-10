@@ -1,10 +1,9 @@
-import re
+# import re
 
 rag_words = [
     'gawker',
     'tmz',
-    'slate',
-    re.compile('shock(ing|er|ed)')
+    'slate'
 ]
 
 
@@ -12,11 +11,11 @@ def test(self, spec, result):
     rag_mentions = spec.contains_any_of(rag_words)
     amount = ('Lots of' if (len(rag_mentions) > 2) else 'Some')
     if (len(rag_mentions) > 0):
-        result.add_warning(
+        result.add_notice(
             amount + ' references to writing rags are used',
             rag_mentions
         )
-        result.add_culture_fail_points(len(rag_mentions))  # TODO categorize this into new point category
+        result.add_credibility_fail_points(len(rag_mentions))  # TODO categorize this into new point category
 
 
 def define_rules(linter):

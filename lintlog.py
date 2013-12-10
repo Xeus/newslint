@@ -15,12 +15,18 @@ def report(result, opts):
         log_messages('warning', 'yellow', opts['verbose'], result.warnings)
         log_messages('notice', 'grey', opts['verbose'], result.notices)
     print
-    log_mentions(result.mentions)
+    msgs = result.errors + result.warnings + result.notices
+    mentions = []
+    for msg in msgs:
+        mentions.append(msg['evidence'])
+    mentions = filter(len, mentions)
+    log_mentions(set(mentions))
 
 
 def log_mentions(mentions):
-    print(Style.NORMAL + Fore.WHITE + Back.BLACK + 'Mentioned: ' + ', '.join(mentions))
-    print
+    if len(mentions) > 0:
+        print(Style.NORMAL + Fore.WHITE + Back.BLACK + 'Mentioned: ' + ', '.join(mentions))
+        print
 
 
 def log_heading(heading):
@@ -34,10 +40,9 @@ def log_success():
 
 def log_fail_charts(points):
     data_set = [
-        {'label': 'Culture', 'value': points['culture']},
-        {'label': 'Realism', 'value': points['realism']},
-        {'label': 'Recruiter', 'value': points['recruiter']},
-        {'label': 'Tech', 'value': points['tech']}
+        {'label': 'Credibility', 'value': points['credibility']},
+        {'label': 'Professionalism', 'value': points['professionalism']},
+        {'label': 'Non-Partisanship', 'value': points['non-partisanship']}
     ]
     max_label_length = max_val(len(datum['label']) for datum in data_set)
 

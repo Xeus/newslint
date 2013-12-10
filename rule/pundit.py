@@ -2,7 +2,7 @@ import re
 
 pundit_words = [
     'krauthammer',
-    re.compile('(thomas|tom) friedman'),
+    re.compile('(?:thomas|tom) friedman'),
     'ayn rand',
     'gold standard',
     'rand paul',
@@ -21,7 +21,7 @@ pundit_words = [
     'karl rove',
     'drudge',
     'dowd',
-    re.compile('chris(topher|) hayes')
+    re.compile('chris(?:topher|) hayes')
 ]
 
 
@@ -34,7 +34,7 @@ def test(self, spec, result):
             pundit_mentions
         )
         result.add_mentions(pundit_mentions)
-        result.add_culture_fail_points(len(pundit_mentions))  # TODO categorize this into new point category
+        result.add_credibility_fail_points(len(pundit_mentions))  # TODO categorize this into new point category
 
 
 def define_rules(linter):

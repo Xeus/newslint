@@ -3,6 +3,7 @@ import linter_class
 import lintlog
 import rule.partisan_slang as partisan_slang
 import rule.pundit as pundit
+import rule.language as language
 import rule.rag as rag
 import rule.sensationalism as sensationalism
 
@@ -15,6 +16,7 @@ def newslint(content):
 
 def inject_rules_into_linter(linter):
     partisan_slang.define_rules(linter)
+    language.define_rules(linter)
     pundit.define_rules(linter)
     rag.define_rules(linter)
     sensationalism.define_rules(linter)

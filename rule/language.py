@@ -9,19 +9,21 @@ swears = [
     'shit'
 ]
 
+
 def test(self, spec, result):
     swear_mentions = spec.contains_any_of(swears)
     if (len(swear_mentions) > 0):
         result.add_warning(
-            'Swearing in a job spec isn\'t very professional: ',
+            'Swearing in a news article isn\'t very professional: ',
             swear_mentions
         )
-        result.add_recruiter_fail_points(len(swear_mentions))
+        result.add_professionalism_fail_points(len(swear_mentions))
+
 
 def define_rules(linter):
     # Profanity
     linter.add_rule({
         'name': 'Profanity',
-        'desc': 'While swearing in the workplace can be OK, you shouldn\'t be using profanity in a job spec; it\'s unprofessional.',
+        'desc': 'Profanity in a news article when not used in an appropriate context or in a quote can seem irrational, poorly edited, or inflammatory.',
         'test': test
     })
