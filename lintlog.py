@@ -31,7 +31,7 @@ def log_mentions(mentions):
 
 def log_heading(heading):
     print
-    print(Fore.BLACK + Back.CYAN + 'NEWSLINT' + Back.BLACK)
+    print(Fore.CYAN + Style.BRIGHT + Back.BLACK + 'NEWSLINT' + Style.NORMAL)
 
 
 def log_success():
@@ -42,7 +42,7 @@ def log_fail_charts(points):
     data_set = [
         {'label': 'Credibility', 'value': points['credibility']},
         {'label': 'Professionalism', 'value': points['professionalism']},
-        {'label': 'Non-Partisanship', 'value': points['non-partisanship']}
+        {'label': 'Non-Partisanship', 'value': points['nonpartisanship']}
     ]
     max_label_length = max_val(len(datum['label']) for datum in data_set)
 
@@ -77,6 +77,6 @@ def log_message(type_cat, color, verbose, message):
         current_color = Fore.RED + Style.NORMAL
     elif color == 'grey':
         current_color = Fore.WHITE + Style.DIM
-    print(current_color + '* ' + message['message'] + Fore.WHITE + Style.DIM + ' (' + type_cat + ')')
+    print(Style.NORMAL + current_color + '* ' + Fore.WHITE + message['message'] + current_color + ' (' + type_cat + ')')
     if (verbose):
         print(Fore.WHITE + Style.DIM + message['detail'])

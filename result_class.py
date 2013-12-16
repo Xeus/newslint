@@ -8,7 +8,7 @@ class Result(object):
     fail_points = dict({
         'credibility': 0,
         'professionalism': 0,
-        'non-partisanship': 0
+        'nonpartisanship': 0
     })
 
     def __init__(self):
@@ -19,7 +19,7 @@ class Result(object):
         self.fail_points = dict({
             'credibility': 0,
             'professionalism': 0,
-            'non-partisanship': 0
+            'nonpartisanship': 0
         })
 
     def set_current_rule(self, rule):
@@ -30,8 +30,10 @@ class Result(object):
 
     def _add_mentions(self, mentions):
         self.mentions += mentions
+        self.mentions = list(set(self.mentions))
 
     def _add_message(self, type_cat, msg, evidence):
+        self.add_mentions(evidence)
         new_msg = {
             'message': msg,
             'detail': self.current_rule['desc'] if self.current_rule != None else '',
@@ -67,7 +69,7 @@ class Result(object):
         self.fail_points['professionalism'] += math.ceil(1 if amount is None else amount)
 
     def add_nonpartisanship_fail_points(self, amount):
-        self.fail_points['non-partisanship'] += math.ceil(1 if amount is None else amount)
+        self.fail_points['nonpartisanship'] += math.ceil(1 if amount is None else amount)
 
     def has_messages(self):
         return (
@@ -80,7 +82,7 @@ class Result(object):
         return (
             self.fail_points['credibility'] > 0 or
             self.fail_points['professionalism'] > 0 or
-            self.fail_points['non-partisanship'] > 0
+            self.fail_points['nonpartisanship'] > 0
         )
 
     def is_clean(self):
