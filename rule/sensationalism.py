@@ -9,6 +9,8 @@ sensationalism_words = [
     'hitler',
     'gestapo',
     'snitch',
+    re.compile('fema[ ]?trailer'),
+    re.compile('chem[ ]?trails'),
     'delusion',
     'false flag',
     re.compile('racis[tm]'),
