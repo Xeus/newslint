@@ -1,9 +1,15 @@
-# import re
+import re
 
 rag_words = [
     'gawker',
     'tmz',
-    'slate'
+    'slate',
+    'infowars',
+    'buzzfeed',
+    re.compile('the blaze'),
+    re.compile('huffington[ ]?post'),
+    re.compile('fox[ ]?news'),
+    re.compile('drudge[ ]?report')
 ]
 
 

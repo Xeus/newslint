@@ -10,6 +10,9 @@ sensationalism_words = [
     'gestapo',
     'snitch',
     'stooge',
+    re.compile('game[- ]?chang(?:e|ing)'),
+    re.compile('cutting[- ]?edge'),
+    re.compile('bleeding[- ]?edge'),
     re.compile('marxis[tm]'),
     re.compile('cron(?:y|ie)'),
     re.compile('fema[ ]?trailer'),
@@ -19,6 +22,9 @@ sensationalism_words = [
     re.compile('racis[tm]'),
     re.compile('meme[- ]?wrangl(?:ing|e)'),
     'flagrant',
+    'cult',
+    'the establishment',
+    'police state',
     re.compile('solutionis[mt]'),
     re.compile('shock(?:ing|er|ed)')
 ]

@@ -4,6 +4,12 @@ swears = [
     'bloody',
     'bugger',
     'cunt',
+    'cock',
+    'pussy',
+    'dick',
+    'douche',
+    'jackass',
+    'asshole',
     re.compile('fuck(?:er|ing)?'),
     re.compile('piss(?:ing)?'),
     'shit'
