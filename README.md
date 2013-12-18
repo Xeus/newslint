@@ -8,6 +8,24 @@ A little project to lint a block of text to see how newsworthy, objective, sensa
 
 Type `python newslint.py "[block of text]"` at a console to lint it.  You will get a log report of errors, warnings, and notices along with what rules were found when linting the clipping.
 
+## Import
+
+	import newslint
+    result = newslint.newslint("SOME TEXT")
+
+## Tests
+
+unittests:
+
+    python tests.py
+
+coverage:
+
+	coverage run newslint.py "chris hayes obamacare death panels shit"
+	coverage html
+
+To see HTML results, go to the directory and open `htmlcov/index.html`.
+
 ## Credits
 
 This is a Python modification/translation of Rowan Manning's excellent JavaScript package, `joblint`:
