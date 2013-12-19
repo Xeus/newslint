@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import unittest
 import newslint
 
@@ -24,6 +25,15 @@ class TestLinter(unittest.TestCase):
 
     def test_mentions(self):
         self.assertEqual(len(self.result.mentions), 5)
+
+
+class TestEncoding(unittest.TestCase):
+
+    def setUp(self):
+        self.result = newslint.newslint(u'\ufeff ✓')
+
+    def test_unicode_input(self):
+        self.assertEqual(type(self.result.fail_points), type({}))
 
 
 if __name__ == '__main__':

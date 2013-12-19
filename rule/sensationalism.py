@@ -17,6 +17,7 @@ sensationalism_words = [
     re.compile('cron(?:y|ie)'),
     re.compile('fema[ ]?trailer'),
     re.compile('chem[ ]?trails'),
+    'snark',
     'delusion',
     'false flag',
     re.compile('racis[tm]'),

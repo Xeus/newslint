@@ -13,6 +13,7 @@ pundit_words = [
     'limbaugh',
     'o\'reilly',
     'gingrich',
+    'thought leader',
     'slate',
     'glenn beck',
     'msnbc',

@@ -7,10 +7,10 @@ class Spec(object):
     content = ''
 
     def __init__(self, content):
-        self.content = content
+        self.content = content.encode('ascii', 'ignore')
 
         # make safe, but retain spaces
-        self._words = wz.url_fix(content.lower()).replace('%20', ' ').split(' ')
+        self._words = wz.url_fix(self.content.lower()).replace('%20', ' ').split(' ')
 
         self._body_normalized = ' ' + ' '.join(self._words) + ' '
 
